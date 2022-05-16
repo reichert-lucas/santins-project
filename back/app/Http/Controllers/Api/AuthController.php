@@ -58,4 +58,11 @@ class AuthController extends Controller
             'message' => 'logout error'
         ], 404);
     }
+
+    public function profile(Request $request)
+    {       
+        $user = $request->user();
+
+        return response()->json(new UserResource($user), 200);
+    }
 }
