@@ -6,31 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUniversitiesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+    public function up(): void
     {
         Schema::create('universities', function (Blueprint $table) {
             $table->uuid('id')->primary();
             
-            $table->string('alpha_two_code', 2);
-            $table->json('domains');
-            $table->string('country');
-            $table->string('state-province');
-            $table->json('web_pages');
-            $table->string('name');
+            $table->string('alpha_two_code', 2)->nullable();
+            $table->json('domains')->nullable();
+            $table->string('country')->nullable();
+            $table->string('state-province')->nullable();
+            $table->json('web_pages')->nullable();
+            $table->string('name')->nullable();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('universities');
     }
