@@ -17,7 +17,7 @@ class University extends Model
         'alpha_two_code',
         'domains',
         'country',
-        'state-province',
+        'state_province',
         'web_pages',
         'name'
     ];
@@ -26,4 +26,15 @@ class University extends Model
         'domains' => 'array',
         'web_pages' => 'array',
     ];
+
+    public function search(string $search = null) 
+    {   
+        if (is_null($search)) return $this;
+
+        return $this->where(function($query) use ($search) {
+            $query->where('alpha_two_code', 'like', "%{$search}%")
+                    ->orWhere('country', 'like', "%{$search}%")
+                    ->orWhere('name', 'like', "%{$search}%");
+        });
+    }
 }

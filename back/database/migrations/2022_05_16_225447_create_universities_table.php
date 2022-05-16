@@ -14,7 +14,7 @@ class CreateUniversitiesTable extends Migration
             $table->string('alpha_two_code', 2)->nullable();
             $table->json('domains')->nullable();
             $table->string('country')->nullable();
-            $table->string('state-province')->nullable();
+            $table->string('state_province')->nullable();
             $table->json('web_pages')->nullable();
             $table->string('name')->nullable();
         });
