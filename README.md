@@ -20,3 +20,6 @@ Para realziar as migrações para a base de dados, juntamente com os dados de te
 - Você deve levantar os containers do ambiente, sendo que isso pode ser feito com o comando `docker-compose up`;
 - Depois disso, você deve migrar as informações para a base de dados, para isso você pode usar o comando `docker exec santins_back php artisan migrate`;
 - Além disso, para adicionar os dados de teste no sistema, deve ser usado o comando `docker exec santins_back php artisan db:seed`;
+
+# Enviando requisições direto para a API
+Para possíveis testes, foi disponibilizado um arquivo com uma collection Postman com as principais chamadas para a API, sendo que ele foi nomeado de `postman_collection.json`, e está no diretório principal do projeto.
