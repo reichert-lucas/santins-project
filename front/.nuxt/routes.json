@@ -7,13 +7,6 @@
     "_name": "_4f24b6ab"
   },
   {
-    "name": "inspire",
-    "path": "/inspire",
-    "component": "/var/www/pages/inspire.vue",
-    "chunkName": "pages/inspire",
-    "_name": "_66281b24"
-  },
-  {
     "name": "login",
     "path": "/login",
     "component": "/var/www/pages/login/index.vue",
