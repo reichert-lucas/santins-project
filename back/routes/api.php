@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UniversityController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('universities/{university}/subscribe', [UniversityController::class, 'subscribeUser']);
     Route::delete('universities/{university}/subscribe', [UniversityController::class, 'unsubscribeUser']);
     Route::resource('universities', UniversityController::class);
+
+    // User routes
+    Route::get('users/universities', [UserController::class, 'universities'])->name('users.universities');
+    Route::resource('users', UserController::class);
     
 });
