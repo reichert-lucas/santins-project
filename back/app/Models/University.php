@@ -37,4 +37,9 @@ class University extends Model
                     ->orWhere('name', 'like', "%{$search}%");
         });
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(user::class, 'user_university');
+    }    
 }

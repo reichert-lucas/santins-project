@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('auth/profile', [AuthController::class, 'profile'])->name('profile');
 
     // University routes
+    Route::post('universities/{university}/subscribe', [UniversityController::class, 'subscribeUser']);
     Route::resource('universities', UniversityController::class);
     
 });
