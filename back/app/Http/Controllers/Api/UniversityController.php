@@ -24,6 +24,12 @@ class UniversityController extends Controller
     {
         $user = $request->user();
 
+        if (!$university->is_approved) {
+            return response()->json([
+                'message' => 'this university has not yet been approved'
+            ], 403);
+        }
+
         $university->users()->save($user);
         
         return response()->json([

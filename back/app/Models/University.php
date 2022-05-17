@@ -19,12 +19,14 @@ class University extends Model
         'country',
         'state_province',
         'web_pages',
-        'name'
+        'name',
+        'is_approved'
     ];
 
     protected $casts = [
         'domains' => 'array',
         'web_pages' => 'array',
+        'is_approved' => 'boolean'
     ];
 
     public function search(string $search = null) 

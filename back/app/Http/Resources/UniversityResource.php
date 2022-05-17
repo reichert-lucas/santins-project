@@ -16,6 +16,7 @@ class UniversityResource extends JsonResource
             'state_province' => $this->state_province,
             'web_pages' => $this->web_pages,
             'name' => $this->name,
+            'is_approved' => $this->is_approved,
         ];
     }
 }

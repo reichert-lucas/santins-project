@@ -27,6 +27,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // User routes
     Route::get('users/universities', [UserController::class, 'universities'])->name('users.universities');
+    Route::post('users/universities', [UserController::class, 'storeUniversity'])->name('users.storeUniversity');
     Route::resource('users', UserController::class);
     
 });
