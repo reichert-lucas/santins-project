@@ -38,7 +38,32 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: "token",
+          global: true,
+        },
+        user: { propertyName: false, autoFetch: true },
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
+          user: { url: '/api/auth/profile', method: 'get', propertyName: 'user' },
+          logout: { url: '/api/auth/logout', method: 'post', propertyName: 'message' }
+        }
+      }
+    },
+    redirect: {
+      login: '/dashboard',
+      logout: '/login',
+      callback: '/login',
+      home: '/dashboard'
+    },
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

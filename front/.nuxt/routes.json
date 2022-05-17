@@ -1,10 +1,24 @@
 [
   {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "/var/www/pages/dashboard/index.vue",
+    "chunkName": "pages/dashboard/index",
+    "_name": "_4f24b6ab"
+  },
+  {
     "name": "inspire",
     "path": "/inspire",
     "component": "/var/www/pages/inspire.vue",
     "chunkName": "pages/inspire",
     "_name": "_66281b24"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/var/www/pages/login/index.vue",
+    "chunkName": "pages/login/index",
+    "_name": "_993c5980"
   },
   {
     "name": "index",
