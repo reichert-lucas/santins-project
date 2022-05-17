@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // University routes
     Route::post('universities/{university}/subscribe', [UniversityController::class, 'subscribeUser']);
+    Route::delete('universities/{university}/subscribe', [UniversityController::class, 'unsubscribeUser']);
     Route::resource('universities', UniversityController::class);
     
 });

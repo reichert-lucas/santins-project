@@ -24,16 +24,28 @@ class UniversityController extends Controller
     {
         $user = $request->user();
 
-        if ($university->users()->save($user)) {
-            return response()->json([
-                'user' => new UserResource($user),
-                'universities' => UniversityResource::collection($user->universities)
-            ], 201);
+        $university->users()->save($user);
+        
+        return response()->json([
+            'user' => new UserResource($user),
+            'universities' => UniversityResource::collection($user->universities)
+        ], 201);
+        
+        return response()->json([
+            'message' => 'unexpected error'
+        ], 500);
+    }
+    
+    public function unsubscribeUser(Request $request, University $university)
+    {
+        $user = $request->user();
+
+        if ($university->users()->detach($user)) {
+            return response()->json(null, 204);
         }
 
         return response()->json([
             'message' => 'unexpected error'
         ], 500);
     }
-    
 }
