@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthLoginRequest;
 use App\Http\Requests\AuthRegisterRequest;
+use App\Http\Resources\UniversityResource;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -41,6 +42,7 @@ class AuthController extends Controller
 
         return response()->json([
                 'user' => new UserResource($user),
+                'universities' => UniversityResource::collection($user->universities),
                 'token' => $token,
                 'token_type' => 'Bearer',
         ]);
@@ -63,6 +65,9 @@ class AuthController extends Controller
     {       
         $user = $request->user();
 
-        return response()->json(new UserResource($user), 200);
+        return response()->json([
+            'user' => new UserResource($user),
+            'universities' => UniversityResource::collection($user->universities)
+        ], 200);
     }
 }
